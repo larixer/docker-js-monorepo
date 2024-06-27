@@ -1,0 +1,6 @@
+{
+  "name": "bar",
+  "dependencies": {
+    "esbuild": "^0.21.5"
+  }
+}
