@@ -1,6 +1,12 @@
 # docker-js-monorepo
 
-Node.js monorepo setup for Docker demo. The setup demonstrates how to utilize Docker cache layers and separate container install artifacts (`node_modules` or `pnp` files) from host artifacts. Provided examples for `npm`, `Yarn 2+ with PnP installs` and `Yarn 2+ with node_modules installs`, each in their own directory.
+Node.js monorepo setup for Docker demo. The setup demonstrates how to utilize Docker cache layers and separate container install artifacts (`node_modules` or `pnp` files) from host artifacts.
+Provided examples:
+
+- `npm` - npm monorepository
+- `yarn` - Yarn node_modules monorepository
+- `yarn-pnp` - Yarn PnP monorepository, non-zero install, global cache enabled
+- `yarn-pnp-zero` - Yarn PnP zero-install monorepository
 
 Provided demo scripts:
 
