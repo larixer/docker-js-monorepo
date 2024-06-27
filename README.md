@@ -1,6 +1,27 @@
 # docker-js-monorepo
 
 Node.js monorepo setup for Docker demo. The setup demonstrates how to utilize Docker cache layers and separate container install artifacts (`node_modules` or `pnp` files) from host artifacts.
+
+The idea. During image rebuild the Docker can skip commands if the underlying files were not changed, so to properly utilize Docker cache you want the following structure of your Dockerfile:
+
+- Copy files that are used by command 1
+- Run command 1
+- Copy files that are used by command 2
+- Run command 2
+- ...
+
+`Run command 1` will be skipped by Docker if the prior step result yields the same files.
+
+In the case of JavaScript projects this boils down to:
+
+- Copy all `package.json` and a lockfile into build image, but only them, not any other files
+- Run install
+- Copy JavaScript source code
+- Compile project
+- ...
+
+We should be careful to not use platform-specific files inside Docker image, that can potentially confuse JavaScript tools and have negative impact on installation. These files should be declared in `.dockerignore`, they will be ignored during copy and should never show up inside the image. The example of platform-specific files: `node_modules`, `.yarn/install-state.gz`
+
 Provided examples:
 
 - `npm` - npm monorepository
