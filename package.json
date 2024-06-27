@@ -1,0 +1,11 @@
+{
+  "workspaces": [
+    "packages/**"
+  ],
+  "scripts": {
+    "test": "npm run test -w foo && npm run test -w bar"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
