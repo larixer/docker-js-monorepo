@@ -6,4 +6,4 @@ RUN corepack enable yarn
 COPY --exclude=**/node_modules --exclude=.yarn/install-state.gz --parents **/package.json .yarnrc.yml yarn.lock .
 RUN yarn
 # Copy all the other source code
-COPY . .
+COPY --exclude=**/node_modules --exclude=.yarn/install-state.gz . .

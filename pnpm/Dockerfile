@@ -6,6 +6,6 @@ RUN corepack enable pnpm
 COPY --exclude=**/node_modules --parents **/package.json .npmrc pnpm-workspace.yaml pnpm-lock.yaml .
 RUN pnpm i
 # Copy all the other source code
-COPY . .
+COPY --exclude=**/node_modules . .
 # Optional application compile step
 # pnpm build

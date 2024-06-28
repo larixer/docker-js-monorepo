@@ -5,4 +5,4 @@ WORKDIR /app
 COPY --exclude=**/node_modules --parents **/package.json .npmrc package-lock.json .
 RUN npm i
 # Copy all the other source code
-COPY . .
+COPY --exclude=**/node_modules . .
