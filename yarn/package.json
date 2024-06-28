@@ -4,6 +4,6 @@
     "packages/**"
   ],
   "dependencies": {
-    "lodash": "^4.17.21"
+    "esbuild": "^0.20.0"
   }
 }
